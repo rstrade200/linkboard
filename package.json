@@ -1,0 +1,12 @@
+{
+  "name": "linkboard",
+  "version": "1.0.0",
+  "description": "A classic link-aggregator board with password accounts.",
+  "main": "server.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

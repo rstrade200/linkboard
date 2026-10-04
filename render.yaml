@@ -1,0 +1,27 @@
+# Render reads this file when you deploy the repository as a Blueprint.
+services:
+  - type: web
+    name: linkboard
+    runtime: node
+    plan: free
+    buildCommand: echo "nothing to build"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: TRUST_PROXY
+        value: "1"
+      # Paste these from your Upstash database's REST API section when Render asks.
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+      # Your own username, so you are the admin even if someone else signs up first.
+      - key: ADMIN_USERS
+        sync: false
+      # Optional: your Cloudinary "API environment variable" (cloudinary://...), so people can upload images and videos.
+      - key: CLOUDINARY_URL
+        sync: false
